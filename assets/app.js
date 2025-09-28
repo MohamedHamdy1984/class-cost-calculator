@@ -31,7 +31,7 @@
     tabs: root.querySelectorAll('.ccc-tab'),
     cards: root.querySelectorAll('.ccc-card'),
     lblDuration: root.querySelector('[data-duration-label]'),
-    lblPerWeek: root.querySelector('[data-perweek]'),
+    lblPerWeek: root.querySelector('[data-perweek-display]'),
     lblPerMonth: root.querySelector('[data-permonth]'),
     lblPackage: root.querySelector('[data-package]'),
     oldPrice: root.querySelector('[data-oldprice]'),

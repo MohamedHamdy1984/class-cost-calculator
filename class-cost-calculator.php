@@ -115,7 +115,7 @@ class Class_Cost_Calculator {
                     <div class="ccc-package"><span class="ccc-muted">Package:</span> <strong data-package>—</strong></div>
                     <div class="ccc-details">
                         <span data-duration-label>25 min</span> •
-                        <span><span data-perweek>1</span>/week</span> •
+                        <span><span data-perweek-display>1</span>/week</span> •
                         <span><span data-permonth>4</span>/month</span>
                     </div>
                 </div>
