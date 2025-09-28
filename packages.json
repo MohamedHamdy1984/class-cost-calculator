@@ -1,0 +1,46 @@
+{
+  "25": {
+    "4": {
+      "name": "Beginner 25m",
+      "price": 34.99
+    },
+    "8": {
+      "name": "Reciter 25m",
+      "price": 49.99
+    },
+    "12": {
+      "name": "Hafiz 25m",
+      "price": 59.99
+    },
+    "16": {
+      "name": "Scholar 25m",
+      "price": 79.99
+    },
+    "20": {
+      "name": "Imam 25m",
+      "price": 99.99
+    }
+  },
+  "50": {
+    "4": {
+      "name": "Beginner 50m",
+      "price": 69.99
+    },
+    "8": {
+      "name": "Reciter 50m",
+      "price": 89.99
+    },
+    "12": {
+      "name": "Hafiz 50m",
+      "price": 119.99
+    },
+    "16": {
+      "name": "Scholar 50m",
+      "price": 149.99
+    },
+    "20": {
+      "name": "Imam 50m",
+      "price": 199.99
+    }
+  }
+}
