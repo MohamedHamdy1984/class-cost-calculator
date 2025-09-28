@@ -1,24 +1,147 @@
-:root{--ccc-paper:#EFECE8;--ccc-dark:#4B3F33;--ccc-primary:#EDA01B}
-.ccc-wrap{background:var(--ccc-paper);border-radius:16px;padding:20px;box-shadow:0 10px 24px rgba(0,0,0,.06);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;color:var(--ccc-dark)}
-.ccc-label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;opacity:.75;margin-bottom:6px}
-.ccc-toggle{display:inline-flex;gap:6px;background:#fff;border-radius:999px;padding:4px;border:1px solid #e6e2dc}
-.ccc-tab{border:none;background:transparent;padding:8px 14px;border-radius:999px;cursor:pointer;font-weight:600;color:var(--ccc-dark)}
-.ccc-tab.is-active{background:var(--ccc-dark);color:#fff}
-.ccc-cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
-.ccc-card{background:#fff;border:2px solid transparent;border-radius:14px;padding:14px 8px;text-align:center;cursor:pointer;transition:.2s}
-.ccc-card strong{font-size:22px;display:block}
-.ccc-card span{font-size:12px;opacity:.8}
-.ccc-card:hover{transform:translateY(-1px)}
-.ccc-card.is-active{border-color:var(--ccc-primary);box-shadow:0 6px 14px rgba(0,0,0,.08)}
-.ccc-card.is-disabled{opacity:.35;cursor:not-allowed}
-.ccc-result{margin-top:18px;display:grid;gap:10px}
-.ccc-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-.ccc-details{opacity:.8;font-size:14px}
-.ccc-muted{opacity:.7;margin-right:6px;font-size:12px}
-.ccc-prices{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.ccc-old s{font-weight:600}
-.ccc-new strong{font-size:26px}
-.ccc-discount{margin-left:8px;font-weight:700;color:var(--ccc-primary)}
-.ccc-cta{margin-top:8px}
-.ccc-btn{display:inline-block;background:var(--ccc-primary);color:#000;text-decoration:none;padding:12px 18px;border-radius:999px;font-weight:800;border:2px solid #0001}
-@media (max-width:640px){.ccc-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+:root {
+  --ccc-paper: #efece8;
+  --ccc-dark: #4b3f33;
+  --ccc-primary: #eda01b;
+}
+.ccc-wrap {
+  background: var(--ccc-paper);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial,
+    sans-serif;
+  color: var(--ccc-dark);
+}
+.ccc-label {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.75;
+  margin-bottom: 6px;
+}
+.ccc-toggle {
+  display: inline-flex;
+  gap: 6px;
+  background: #fff;
+  border-radius: 999px;
+  padding: 4px;
+  border: 1px solid #e6e2dc;
+}
+.ccc-tab {
+  border: none;
+  background: transparent;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ccc-dark);
+}
+.ccc-tab.is-active {
+  background: var(--ccc-dark);
+  color: #fff;
+}
+.ccc-cards {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+.ccc-card {
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 14px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.ccc-card strong {
+  font-size: 22px;
+  display: block;
+}
+.ccc-card span {
+  font-size: 12px;
+  opacity: 0.8;
+}
+.ccc-card:hover {
+  transform: translateY(-1px);
+}
+.ccc-card.is-active {
+  border-color: var(--ccc-primary);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+.ccc-card.is-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.ccc-result {
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--ccc-dark) 0%, #3a2f26 100%);
+  color: #fff;
+  padding: 20px;
+  border-radius: 14px;
+}
+.ccc-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.ccc-details {
+  opacity: 0.8;
+  font-size: 14px;
+}
+.ccc-muted {
+  opacity: 0.7;
+  margin-right: 6px;
+  font-size: 12px;
+}
+.ccc-prices {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.ccc-old s {
+  font-weight: 600;
+}
+.ccc-new strong {
+  font-size: 26px;
+}
+.ccc-discount {
+  margin-left: 8px;
+  font-weight: 700;
+  color: var(--ccc-primary);
+}
+.ccc-cta {
+  margin-top: 8px;
+}
+.ccc-btn {
+  display: inline-block;
+  background: var(--ccc-primary);
+  color: #000;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  border: 2px solid #0001;
+}
+@media (min-width: 768px) {
+  .ccc-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+  }
+  .ccc-result {
+    margin-top: 0;
+  }
+}
+@media (max-width: 640px) {
+  .ccc-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
