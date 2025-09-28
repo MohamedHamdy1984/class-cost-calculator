@@ -58,9 +58,9 @@ class Class_Cost_Calculator {
             'currency' => 'USD',
             'decimals' => 2,
             'colors'   => [
-                'primary'   => '#EDA01B',
-                'dark'      => '#4B3F33',
-                'paper'     => '#EFECE8',
+                'primary'   => 'var(--e-global-color-secondary)', // اصفر
+                'dark'      => 'var(--e-global-color-6f59b8c)', // بني غامق
+                'paper'     => 'var(--e-global-color-primary)', // بيج فاتح
             ],
             // Discount tiers: order matters (threshold => percent)
             // Applies on the base monthly price BEFORE discount.
@@ -111,21 +111,26 @@ class Class_Cost_Calculator {
             </div>
 
             <div class="ccc-result" aria-live="polite">
+                <div class="ccc-billing-label">
+                    <span class="ccc-billing-text">Billed Monthly</span>
+                </div>
+
+                <div class="ccc-pricing">
+                    <div class="ccc-old-price" data-old-price-container style="display: none;">
+                        <s data-oldprice>$0.00</s>
+                    </div>
+                    <div class="ccc-main-price">
+                        <strong data-newprice>$0.00</strong>
+                        <span class="ccc-discount" data-discountbadge></span>
+                    </div>
+                </div>
+
                 <div class="ccc-meta">
                     <div class="ccc-package"><span class="ccc-muted">Package:</span> <strong data-package>—</strong></div>
                     <div class="ccc-details">
                         <span data-duration-label>25 min</span> •
                         <span><span data-perweek-display>1</span>/week</span> •
                         <span><span data-permonth>4</span>/month</span>
-                    </div>
-                </div>
-
-                <div class="ccc-prices">
-                    <div class="ccc-old"><span class="ccc-muted">Before:</span> <s data-oldprice>$0.00</s></div>
-                    <div class="ccc-new">
-                        <span class="ccc-muted">After discount:</span>
-                        <strong data-newprice>$0.00</strong>
-                        <span class="ccc-discount" data-discountbadge></span>
                     </div>
                 </div>
 

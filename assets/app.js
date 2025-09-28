@@ -35,6 +35,7 @@
     lblPerMonth: root.querySelector('[data-permonth]'),
     lblPackage: root.querySelector('[data-package]'),
     oldPrice: root.querySelector('[data-oldprice]'),
+    oldPriceContainer: root.querySelector('[data-old-price-container]'),
     newPrice: root.querySelector('[data-newprice]'),
     discountBadge: root.querySelector('[data-discountbadge]'),
     subscribe: root.querySelector('[data-subscribe]')
@@ -68,6 +69,7 @@
       ui.oldPrice.textContent = fmt(0);
       ui.newPrice.textContent = fmt(0);
       ui.discountBadge.textContent = '';
+      ui.oldPriceContainer.style.display = 'none';
       ui.subscribe.setAttribute('href', '#');
       return;
     }
@@ -76,9 +78,20 @@
     const base = Number(pkg.price||0);
     const pct = calcDiscount(base);
     const after = base * (1 - pct/100);
-    ui.oldPrice.textContent = fmt(base);
-    ui.newPrice.textContent = fmt(after);
-    ui.discountBadge.textContent = pct ? `(-${pct}%)` : '';
+    
+    // Conditional display logic
+    if (pct > 0) {
+      // Show discount: display both original and discounted prices
+      ui.oldPrice.textContent = fmt(base);
+      ui.oldPriceContainer.style.display = 'block';
+      ui.newPrice.textContent = fmt(after);
+      ui.discountBadge.textContent = `(-${pct}%)`;
+    } else {
+      // No discount: hide original price, show only final price
+      ui.oldPriceContainer.style.display = 'none';
+      ui.newPrice.textContent = fmt(base);
+      ui.discountBadge.textContent = '';
+    }
 
     // subscribe link key: "<duration>m_<perMonth>"
     const key = `${state.duration}m_${perMonth}`;
