@@ -6,8 +6,6 @@
 .ccc-wrap {
   background: var(--ccc-paper);
   border-radius: 16px;
-  width: fit-content;
-  text-align: center;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial,
     sans-serif;
@@ -30,8 +28,8 @@
   border: 1px solid #e6e2dc;
 }
 .ccc-tab {
-  border: none;
-  background: transparent;
+  border: 2px solid var(--ccc-dark);
+  background: var(--ccc-paper);
   padding: 8px 14px;
   border-radius: 999px;
   cursor: pointer;
@@ -108,6 +106,17 @@
 
 .ccc-old-price {
   margin-bottom: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.ccc-old-price.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.ccc-old-price.visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 .ccc-old-price s {

@@ -116,7 +116,7 @@ class Class_Cost_Calculator {
                 </div>
 
                 <div class="ccc-pricing">
-                    <div class="ccc-old-price" data-old-price-container style="display: none;">
+                    <div class="ccc-old-price" data-old-price-container >
                         <s data-oldprice>$0.00</s>
                     </div>
                     <div class="ccc-main-price">

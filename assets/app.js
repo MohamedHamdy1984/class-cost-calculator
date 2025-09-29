@@ -1,10 +1,10 @@
-(function(){
+(function () {
   const root = document.querySelector('[data-ccc]');
-  if(!root || typeof CCC_DATA === 'undefined') return;
+  if (!root || typeof CCC_DATA === 'undefined') return;
 
   const fmt = (n) => {
     const s = CCC_DATA.settings;
-    return new Intl.NumberFormat('en-US', { style:'currency', currency:s.currency, minimumFractionDigits:s.decimals, maximumFractionDigits:s.decimals }).format(n);
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: s.currency, minimumFractionDigits: s.decimals, maximumFractionDigits: s.decimals }).format(n);
   };
 
   const byMonth = (perWeek) => perWeek * 4; // 4 weeks per month
@@ -20,7 +20,7 @@
 
   const calcDiscount = (base) => {
     const tiers = CCC_DATA.settings.discounts || [];
-    for (let i=0; i<tiers.length; i++) {
+    for (let i = 0; i < tiers.length; i++) {
       const t = tiers[i];
       if (base >= t.threshold) return t.percent;
     }
@@ -41,16 +41,16 @@
     subscribe: root.querySelector('[data-subscribe]')
   };
 
-  let state = { duration:25, perWeek:1 };
+  let state = { duration: 25, perWeek: 1 };
 
   // init colors
-  (function setColors(){
+  (function setColors() {
     const c = CCC_DATA.settings.colors || {};
     const css = `
-      .ccc-wrap .ccc-btn{background:${c.primary||'#EDA01B'}}
-      .ccc-wrap .ccc-card.is-active{border-color:${c.primary||'#EDA01B'}; color:${c.dark||'#4B3F33'}}
-      .ccc-wrap .ccc-tab.is-active{background:${c.dark||'#4B3F33'}; color:#fff}
-      .ccc-wrap{--ccc-paper:${c.paper||'#EFECE8'}; --ccc-dark:${c.dark||'#4B3F33'}; --ccc-primary:${c.primary||'#EDA01B'}}
+      .ccc-wrap .ccc-btn{background:${c.primary || '#EDA01B'}}
+      .ccc-wrap .ccc-card.is-active{border-color:${c.primary || '#EDA01B'}; color:${c.dark || '#4B3F33'}}
+      .ccc-wrap .ccc-tab.is-active{background:${c.dark || '#4B3F33'}; color:#fff}
+      .ccc-wrap{--ccc-paper:${c.paper || '#EFECE8'}; --ccc-dark:${c.dark || '#4B3F33'}; --ccc-primary:${c.primary || '#EDA01B'}}
     `;
     const el = document.createElement('style');
     el.textContent = css;
@@ -69,33 +69,36 @@
       ui.oldPrice.textContent = fmt(0);
       ui.newPrice.textContent = fmt(0);
       ui.discountBadge.textContent = '';
-      ui.oldPriceContainer.style.display = 'none';
+      ui.oldPriceContainer.classList.remove('visible');
+      ui.oldPriceContainer.classList.add('hidden');
       ui.subscribe.setAttribute('href', '#');
       return;
     }
 
     ui.lblPackage.textContent = pkg.name || 'Package';
-    const base = Number(pkg.price||0);
+    const base = Number(pkg.price || 0);
     const pct = calcDiscount(base);
-    const after = base * (1 - pct/100);
-    
+    const after = base * (1 - pct / 100);
+
     // Conditional display logic
     if (pct > 0) {
       // Show discount: display both original and discounted prices
       ui.oldPrice.textContent = fmt(base);
-      ui.oldPriceContainer.style.display = 'block';
+      ui.oldPriceContainer.classList.remove('hidden');
+ui.oldPriceContainer.classList.add('visible');
       ui.newPrice.textContent = fmt(after);
       ui.discountBadge.textContent = `(-${pct}%)`;
     } else {
       // No discount: hide original price, show only final price
-      ui.oldPriceContainer.style.display = 'none';
+      ui.oldPriceContainer.classList.remove('visible');
+      ui.oldPriceContainer.classList.add('hidden');
       ui.newPrice.textContent = fmt(base);
       ui.discountBadge.textContent = '';
     }
 
     // subscribe link key: "<duration>m_<perMonth>"
     const key = `${state.duration}m_${perMonth}`;
-    const link = (CCC_DATA.settings.subscribe_links||{})[key] || '#';
+    const link = (CCC_DATA.settings.subscribe_links || {})[key] || '#';
     ui.subscribe.setAttribute('href', link);
   };
 
@@ -111,7 +114,7 @@
 
   ui.cards.forEach(card => {
     card.addEventListener('click', () => {
-      if(card.classList.contains('is-disabled')) return;
+      if (card.classList.contains('is-disabled')) return;
       ui.cards.forEach(c => c.classList.remove('is-active'));
       card.classList.add('is-active');
       state.perWeek = Number(card.dataset.perweek);
