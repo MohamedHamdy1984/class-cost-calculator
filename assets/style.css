@@ -10,6 +10,13 @@
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial,
     sans-serif;
   color: var(--ccc-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+.ccc-controls {
+  flex: 1;
+  padding: 20px;
 }
 .ccc-label {
   display: block;
@@ -28,17 +35,23 @@
   border: 1px solid #e6e2dc;
 }
 .ccc-tab {
-  border: 2px solid var(--ccc-dark);
-  background: var(--ccc-paper);
+  border: 2px solid transparent;
+  background: transparent;
   padding: 8px 14px;
   border-radius: 999px;
   cursor: pointer;
   font-weight: 600;
-  color: var(--ccc-dark);
+  color: var(--ccc-primary);
+  transition: all 0.2s ease;
+  opacity: 0.6;
+}
+.ccc-tab:hover {
+  opacity: 0.8;
 }
 .ccc-tab.is-active {
-  background: var(--ccc-dark);
   color: #fff;
+  opacity: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 .ccc-cards {
   display: grid;
@@ -75,13 +88,13 @@
 }
 .ccc-result {
   padding: 72px 16px;
-  margin-top: 18px;
   display: flex;
   flex-direction: column;
   gap: 16px;
   background: linear-gradient(135deg, var(--ccc-dark) 0%, #3a2f26 100%);
   color: #fff;
   border-radius: 14px;
+  order: 2;
 }
 
 /* Billing label at the top */
@@ -193,37 +206,46 @@
 /* Tablet and Desktop max-width constraints */
 @media (min-width: 768px) {
   .ccc-wrap {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    align-items: stretch;
+    flex-direction: row;
+    width: 1290px;
+    max-width: 100%;
   }
+  
+  .ccc-controls {
+    flex: 2;
+    order: 1;
+  }
+  
   .ccc-result {
-    margin-top: 0;
-    height: 100%;
+    flex: 1;
+    order: 2;
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
-@media (min-width: 1024px) {
+/* Mobile responsive adjustments */
+@media (max-width: 767px) {
+  .ccc-wrap {
+    flex-direction: column;
+  }
+  
+  .ccc-controls {
+    order: 1;
+  }
+  
   .ccc-result {
-    max-width: 400px;
+    order: 2;
+    padding: 16px;
+    gap: 14px;
   }
 }
-/* Mobile responsive adjustments */
+
 @media (max-width: 640px) {
   .ccc-cards {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .ccc-result {
-    padding: 16px;
-    gap: 14px;
   }
 
   .ccc-main-price strong {
@@ -261,11 +283,3 @@
   }
 }
 
-/* Ensure proper spacing and alignment for medium screens */
-@media (min-width: 641px) and (max-width: 767px) {
-  .ccc-result {
-    max-width: none;
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
