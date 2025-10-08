@@ -33,11 +33,12 @@
 }
 .ccc-label {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   opacity: 0.75;
-  margin-bottom: 6px;
+  margin: 10px 0;
+  font-weight: 500;
 }
 .ccc-toggle {
   display: inline-flex;
@@ -83,7 +84,7 @@
   padding: 14px 8px;
   text-align: center;
   cursor: pointer;
-  transition: 0.2s;
+  transition: all 0.2s ease;
 }
 .ccc-card strong {
   font-size: 48px;
