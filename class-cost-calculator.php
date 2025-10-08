@@ -86,6 +86,7 @@ class Class_Cost_Calculator {
     }
 
     public function render_shortcode( $atts ) {
+        $packages = ['Beginner', 'Reciter', 'Hafiz', 'Scholar', 'Imam'];
         ob_start(); ?>
         <div class="ccc-wrap" data-ccc>
             <div class="ccc-controls">
@@ -102,6 +103,7 @@ class Class_Cost_Calculator {
                     <div class="ccc-cards" role="list">
                         <?php foreach ( [1,2,3,4,5] as $n ) : ?>
                             <button type="button" class="ccc-card" role="listitem" data-perweek="<?php echo esc_attr($n); ?>">
+                                <span><?php echo esc_html($packages[$n-1]); ?></span>
                                 <strong><?php echo esc_html($n); ?></strong>
                                 <span>per week</span>
                             </button>
