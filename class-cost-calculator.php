@@ -57,11 +57,11 @@ class Class_Cost_Calculator {
         $settings = [
             'currency' => 'USD',
             'decimals' => 2,
-            'colors'   => [
-                'primary'   => 'var(--e-global-color-secondary)', // اصفر
-                'dark'      => 'var(--e-global-color-6f59b8c)', // بني غامق
-                'paper'     => 'var(--e-global-color-primary)', // بيج فاتح
-            ],
+            // 'colors'   => [
+            //     'primary'   => 'var(--e-global-color-secondary)', // اصفر
+            //     'dark'      => 'var(--e-global-color-6f59b8c)', // بني غامق
+            //     'paper'     => 'var(--e-global-color-primary)', // بيج فاتح
+            // ],
             // Discount tiers: order matters (threshold => percent)
             // Applies on the base monthly price BEFORE discount.
             'discounts' => [

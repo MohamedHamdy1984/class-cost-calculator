@@ -44,18 +44,18 @@
   let state = { duration: 25, perWeek: 1 };
 
   // init colors
-  (function setColors() {
-    const c = CCC_DATA.settings.colors || {};
-    const css = `
-      .ccc-wrap .ccc-btn{background:${c.primary || '#EDA01B'}}
-      .ccc-wrap .ccc-card.is-active{border-color:${c.primary || '#EDA01B'}; color:${c.dark || '#4B3F33'}}
-      .ccc-wrap .ccc-tab.is-active{background:${c.dark || '#4B3F33'}; color:#fff}
-      .ccc-wrap{--ccc-paper:${c.paper || '#EFECE8'}; --ccc-dark:${c.dark || '#4B3F33'}; --ccc-primary:${c.primary || '#EDA01B'}}
-    `;
-    const el = document.createElement('style');
-    el.textContent = css;
-    document.head.appendChild(el);
-  })();
+  // (function setColors() {
+  //   const c = CCC_DATA.settings.colors || {};
+  //   const css = `
+  //     .ccc-wrap .ccc-btn{background:${c.primary || '#EDA01B'}}
+  //     .ccc-wrap .ccc-card.is-active{border-color:${c.primary || '#EDA01B'}; color:${c.dark || '#4B3F33'}}
+  //     .ccc-wrap .ccc-tab.is-active{background:${c.dark || '#4B3F33'}; color:#fff}
+  //     .ccc-wrap{--ccc-paper:${c.paper || '#EFECE8'}; --ccc-dark:${c.dark || '#4B3F33'}; --ccc-primary:${c.primary || '#EDA01B'}}
+  //   `;
+  //   const el = document.createElement('style');
+  //   el.textContent = css;
+  //   document.head.appendChild(el);
+  // })();
 
   const render = () => {
     const perMonth = byMonth(state.perWeek);
