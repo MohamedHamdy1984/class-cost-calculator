@@ -60,9 +60,9 @@
   opacity: 0.6;
 }
 .ccc-tab:hover {
-  opacity: 0.8;
-  background-color: #fff !important;
-  color: var(--ccc-dark) !important;
+  opacity: 0.6;
+  background-color: var(--ccc-dark) !important;
+  color: var(--ccc-paper) !important;
 }
 .ccc-tab.is-active {
   opacity: 1;
@@ -97,6 +97,8 @@
 }
 .ccc-card:hover {
   transform: translateY(-1px);
+  color: var(--ccc-primary);
+  border-color: var(--ccc-primary);
 }
 .ccc-card.is-active {
   border-color: var(--ccc-primary);

@@ -105,7 +105,7 @@ class Class_Cost_Calculator {
                             <button type="button" class="ccc-card" role="listitem" data-perweek="<?php echo esc_attr($n); ?>">
                                 <span><?php echo esc_html($packages[$n-1]); ?></span>
                                 <strong><?php echo esc_html($n); ?></strong>
-                                <span>per week</span>
+                                <span><?php echo ($n == 1) ? 'Class per week' : 'Classes per week'; ?></span>
                             </button>
                         <?php endforeach; ?>
                     </div>
